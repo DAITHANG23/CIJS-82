@@ -1,0 +1,19 @@
+.product-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.product-item img {
+    width: 100%;
+}
+
+.product-item p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 17px;
+    color: #002D69;
+}

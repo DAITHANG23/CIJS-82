@@ -1,0 +1,8 @@
+.footer03{
+    display: flex;
+    justify-content: space-between;
+}
+.footer03 img{
+    width: 220px;
+    height: 32px;
+}

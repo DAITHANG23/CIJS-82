@@ -1,0 +1,26 @@
+.reviewitem {
+
+    padding: 10px;
+    border: 1px solid #343434;
+    width: 30%;
+}
+
+.reviewitem img {
+    width: 28px;
+    height: 21px;
+    margin-left: 15px;
+}
+
+.reviewitem .content {
+    padding-top: 23px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #343434;
+    text-align: center;
+}
+
+.reviewitem .name{
+    padding-top: 31px;
+    text-align: center;
+}
