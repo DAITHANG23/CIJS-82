@@ -1,26 +1,31 @@
 import { useState } from 'react'
 import './TodoForm.css'
 
-const TodoForm = (props) =>{
-    const {onAddNewTodo} = props;
+const TodoForm = (props) => {
 
-    const [valueInput, setValueInput] = useState("");
-    const onChangeTodoForm = (e) =>{
-        setValueInput(e.target.value)
+
+    const [title, setTitle] = useState("");
+    const onChangeTodoForm = (e) => {
+        setTitle(e.target.value)
     }
 
-    const onAddNewTodoList = (e) =>{
+    const onAddNewTodoList = (e) => {
         e.preventDefault();
-        onAddNewTodo(valueInput);
-        setValueInput("");
+        props.onAddNewTodo(title);
+        setTitle("");
     }
     return <div className='form'>
-        <input 
-        type="text" 
-        className="input-form"
-        onChange={onChangeTodoForm}
-        />
-        <button onClick={onAddNewTodoList} className="button-form">+ ADD</button>
+        <form onSubmit={onAddNewTodoList}>
+            <input
+                type="text"
+                className="input-form"
+                onChange={onChangeTodoForm}
+                value={title}
+                placeholder='I will do this *'
+            />
+            <button type='submit' className="button-form">+ ADD</button>
+        </form>
+
     </div>
 }
 
