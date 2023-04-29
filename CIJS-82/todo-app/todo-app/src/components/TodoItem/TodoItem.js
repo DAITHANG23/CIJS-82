@@ -1,19 +1,56 @@
 import './TodoItem.css'
 import { FaEdit } from "react-icons/fa";
+import { useState,useEffect, useRef } from 'react';
+
 const TodoItem = (props) => {
-    const { title, id, isChecked, onRemoveTodoList  } = props;
-    return <div className='todo-item'>
+    const { title, id, isChecked, onRemoveTodoList, isCheckTodoList,  onUpdateTitle  } = props;
+
+    const [isEditing, setIsEditing] = useState(false);
+    const [isEditingValue, setIsEditingValue] = useState(title);
+    const todoInputRef = useRef(null)
+   
+    const isStyleTitle = isChecked ? "title-todo check-todo " : "title-todo"
+    const isStyleCard = isChecked ? "todo-item check-card" : "todo-item"
+
+    const onEditing = () =>{
+        setIsEditing(true); // change edit 
+    }
+
+    const onChangeTitle = (e) =>{
+        setIsEditingValue(e.target.value) 
+    }
+
+    const onUpdateTitleHandle = () => {
+        onUpdateTitle(isEditingValue, id)
+        setIsEditing(false)
+    }
+
+    useEffect(() => {
+        if (isEditing && todoInputRef) {
+          todoInputRef && todoInputRef.current.focus();
+        }
+      }, [isEditing]);
+
+    return <div className={isStyleCard}>
         <div className='todo-item-title'>
-            <input type='checkbox' checked={isChecked} id={id} />
-            <p
-                style={{
-                    fontSize:"24px",
-                    color:"rgba(0, 0, 0, 0.87)",
-                    paddingTop:"10px"
-                }}>{title}</p>
+            <input  type='checkbox' checked={isChecked} id={id} onChange={()=>isCheckTodoList(id)} />
+            {
+                isEditing?(
+                    <input 
+                    value={isEditingValue}
+                    name={title}
+                    onChange={onChangeTitle}
+                    onBlur={onUpdateTitleHandle}
+                    ref={todoInputRef}
+                    />
+                ): (<p  className={isStyleTitle}
+                >{title}</p>)
+            }
+            
         </div>
         <div className='todo-func'>
             <FaEdit
+                onClick={onEditing}
                 style={{
                     color: "rgb(54, 231, 54)",
                     fontSize:"35px",
