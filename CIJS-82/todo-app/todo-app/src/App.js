@@ -31,6 +31,7 @@ function App() {
       return itemId.id === todoId;
     })
     const newTodoItem = [...todoList]
+    // Cách 2:
     // const checkedTodoList = {
     //   ...newTodoItem[todoIndex],
     //   isChecked: !newTodoItem[todoIndex].isChecked
