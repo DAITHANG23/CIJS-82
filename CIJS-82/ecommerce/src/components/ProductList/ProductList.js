@@ -5,7 +5,7 @@ import AppContext from '../../contexts/AppContext';
 
 
 const ProductList = () => {
-
+    
     const {products = []} = useContext(AppContext);
     const isValidProductList = products && Array.isArray(products);
     const listProduct = isValidProductList ? (products.map((product) => {

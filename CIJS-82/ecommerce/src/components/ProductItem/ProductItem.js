@@ -5,7 +5,8 @@ import "./ProductItem.css";
 import { FaCartPlus } from "react-icons/fa";
 import AppContext from '../../contexts/AppContext';
 
-const ProductItem = ({ productImage, productName, productId, productPrice }) => {
+const ProductItem = (props) => {
+    const{ productImage, productName, productId, productPrice } = props;
 
     const { onAddToCart } = useContext(AppContext);
     const navigate = useNavigate();

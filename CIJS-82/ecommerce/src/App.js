@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/HomePage/HomePage';
 import AboutUs from './pages/AboutUs/AboutUs';
@@ -9,11 +9,12 @@ import NotFound from './pages/NotFound/NotFound'
 import { useState } from 'react';
 import AppContext from './contexts/AppContext';
 import { v4 as uuidv4 } from "uuid";
+import {initialProducts} from './utils/mockData'
 
 const App = () => {
 
-  const [products, setProducts] = useState([])
-  const [cart, setCart] = useState("");
+  const [products, setProducts] = useState(initialProducts)
+  const [cart, setCart] = useState([]);
 
   const onAddNewProduct = (product) => {
     const newProduct = {
@@ -25,13 +26,14 @@ const App = () => {
 
   }
 
+
   const onAddToCart = (productId) => {
     const existingProduct = products.find((product) => {
-      product.id === productId;
+      return product.id === productId;
     })
-
+    console.log("add to cart")
     const cartIndexProduct = cart.findIndex((cartItem) => {
-      cartItem.id === productId;
+      return cartItem.id === productId;
     })
 
     if (cartIndexProduct === -1) {
@@ -41,26 +43,50 @@ const App = () => {
       }
       setCart([...cart, newCartProduct])
     } else {
-      const cloneCart = [...cart];
-      cloneCart[cartIndexProduct].quantity += 1;
-      setCart(cloneCart);
+      const clonedCart = [...cart];
+      clonedCart[cartIndexProduct].quantity += 1;
+      setCart(clonedCart);
     }
   }
 
   const onIncreaseQuantity = (productId) => {
+    const cartIndexProduct = cart.findIndex((cartItem) => {
+      return cartItem.id === productId;
+    })
 
+    const updatingCart = [...cart];
+    updatingCart[cartIndexProduct].quantity += 1;
+    setCart(updatingCart);
   }
 
   const onDecreaseQuantity = (productId) => {
+    const cartIndexProduct = cart.findIndex((cartItem) => {
+      return cartItem.id === productId;
+    })
+
+    const updatingCart = [...cart];
+    const currentCartProductQuantity = updatingCart[cartIndexProduct].quantity;
+
+    if (currentCartProductQuantity === 1) {
+      onDeleteProductCart();
+
+    } else {
+      updatingCart[cartIndexProduct].quantity -= 1;
+      setCart(updatingCart);
+    }
 
   }
 
   const onDeleteProductCart = (productId) => {
+    const removeProductItem = cart.filter((cartItem) => {
+      return cartItem.id !== productId;
+    })
 
+    setCart(removeProductItem);
   }
 
 
-  return <div className='container'>
+  return <div className='App container'>
     <AppContext.Provider
       value={{
         products: products,
@@ -68,16 +94,27 @@ const App = () => {
         onAddNewProduct: onAddNewProduct,
       }}
     >
-      <BrowserRouter >
-        <Header />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/about-us' element={<AboutUs />} />
-          <Route path='/admin' element={<Admin />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+
+      <div className='App'>
+        <Header cart={cart} />
+        <main>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/admin' element={<Admin />} />
+            <Route path='/cart'
+              element=
+              {<Cart
+                cart={cart}
+                onIncreaseQuantity={onIncreaseQuantity}
+                onDecreaseQuantity={onDecreaseQuantity}
+                onDeleteProductCart={onDeleteProductCart}
+              />}
+            />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </main>
+      </div>
     </AppContext.Provider>
 
   </div>

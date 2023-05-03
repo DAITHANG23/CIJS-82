@@ -2,7 +2,8 @@ import React from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {FaShoppingCart} from 'react-icons/fa'
 import './Header.css'
-const Header = () => {
+const Header = (props) => {
+  const {cart} = props;
 const navigate = useNavigate();
 
 const onNavigateToCartPage = () =>{
@@ -39,7 +40,7 @@ const onNavigateToCartPage = () =>{
         <FaShoppingCart />
         </div>
         
-        <span className='number-cart'>10</span>
+        <span className='number-cart'>{cart}</span>
       </div>
     </nav>
   )
