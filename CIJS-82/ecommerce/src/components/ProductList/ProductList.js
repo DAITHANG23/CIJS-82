@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import ProductItem from '../ProductItem/ProductItem';
 import AppContext from '../../contexts/AppContext';
 
@@ -7,6 +7,7 @@ import AppContext from '../../contexts/AppContext';
 const ProductList = () => {
     
     const {products = []} = useContext(AppContext);
+    
     const isValidProductList = products && Array.isArray(products);
     const listProduct = isValidProductList ? (products.map((product) => {
         const {productName, productImage, productPrice, id} = product;

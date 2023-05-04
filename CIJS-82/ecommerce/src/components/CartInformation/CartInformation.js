@@ -1,29 +1,25 @@
-import './CartInformation.css'
 import { FaTrashAlt } from "react-icons/fa";
-import React from 'react'
 import { Link } from "react-router-dom";
-
 const CartInformation = (props) => {
-  const { cart, onIncreaseQuantity, onDecreaseQuantity, onDeleteProductCart } = props;
+  const { cart, onIncreaseQuantity, onDecreaseQuantity, onDeleteProductCart } =
+    props;
 
-  const getTotalPrice = (cart) =>{
+  const getTotalPrice = (cart) => {
     let totalPrice = 0;
-    for(let i = 0; i < cart.length; i++) {
+    for (let i = 0; i < cart.length; i++) {
       const cartItem = cart[i];
-       totalPrice = cartItem.productPrice * cartItem.quantity
-
+      totalPrice += cartItem.productPrice * cartItem.quantity;
     }
-    return totalPrice;
-  }
 
+    return totalPrice;
+  };
   const totalPrice = getTotalPrice(cart);
- 
   const cartBodyElements = cart.map((cartItem, index) => {
-    const { productImage, productName, quantity, productPrice, id } = cartItem;
+    const {productName, productImage, quantity, productPrice, id } = cartItem;
     // const isDisabledDecreaseButton = quantity === 1;
 
     return (
-      <tr key={id}>
+      <tr key={cartItem.id}>
         <th scope="row">{index}</th>
         <td>{productName}</td>
         <td>
@@ -69,7 +65,7 @@ const CartInformation = (props) => {
   }
   return (
     <div>
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -82,21 +78,23 @@ const CartInformation = (props) => {
           </tr>
         </thead>
         <tbody>
+          <div>
           {cartBodyElements}
-        <tr>
-        <td>Total price</td>
+          </div>
+          
+          <tr>
+            <td>Total price</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             <td>{totalPrice}</td>
             <td></td>
-        </tr>
-        
+          </tr>
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default CartInformation
+export default CartInformation;

@@ -28,23 +28,24 @@ const App = () => {
 
 
   const onAddToCart = (productId) => {
-    const existingProduct = products.find((product) => {
-      return product.id === productId;
-    })
-    console.log("add to cart")
-    const cartIndexProduct = cart.findIndex((cartItem) => {
-      return cartItem.id === productId;
-    })
+    const existingProduct = products.find(
+      (product) => product.id === productId
+    );
 
-    if (cartIndexProduct === -1) {
-      const newCartProduct = {
+    const indexOfAddingProductInCart = cart.findIndex(
+      (cartItem) => cartItem.id === productId
+    );
+
+    if (indexOfAddingProductInCart === -1) {
+      const newCartItem = {
         ...existingProduct,
-        quantity: 1
-      }
-      setCart([...cart, newCartProduct])
+        quantity: 1,
+      };
+
+      setCart([...cart, newCartItem]);
     } else {
       const clonedCart = [...cart];
-      clonedCart[cartIndexProduct].quantity += 1;
+      clonedCart[indexOfAddingProductInCart].quantity += 1;
       setCart(clonedCart);
     }
   }
@@ -97,7 +98,7 @@ const App = () => {
 
       <div className='App'>
         <Header cart={cart} />
-        <main>
+        <main className="container py-3">
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/about-us' element={<AboutUs />} />

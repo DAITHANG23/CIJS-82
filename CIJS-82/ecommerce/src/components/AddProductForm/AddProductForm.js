@@ -4,7 +4,7 @@ import AppContext from '../../contexts/AppContext';
 
 const AddProductForm = () => {
   const { onAddNewProduct } = useContext(AppContext);
-  const [productValue, setProducValue] = useState({
+  const [productValue, setProductValue] = useState({
     productName: "",
     productImage: "",
     productPrice: ""
@@ -13,7 +13,7 @@ const AddProductForm = () => {
   const onProductChange = (e) => {
     const { name, value } = e.target;
 
-    setProducValue({
+    setProductValue({
       ...productValue,
       [name]: value
     })
@@ -22,7 +22,7 @@ const AddProductForm = () => {
   const onProductSubmit = (e) => {
     e.preventDefault();
     onAddNewProduct(productValue);
-    setProducValue({
+    setProductValue({
       productName: "",
       productImage: "",
       productPrice: ""
