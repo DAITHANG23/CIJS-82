@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useContext } from 'react'
 import AppContext from '../../contexts/AppContext';
+import './AddProductForm.css'
 
 const AddProductForm = () => {
   const { onAddNewProduct } = useContext(AppContext);
@@ -70,7 +71,7 @@ const AddProductForm = () => {
         </div>
 
         <div>
-          <button>ADD NEW PRODUCT</button>
+          <button className='btn btn-primary'>ADD NEW PRODUCT</button>
         </div>
       </form>
     </div>

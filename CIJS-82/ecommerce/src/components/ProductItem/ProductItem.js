@@ -16,16 +16,27 @@ const ProductItem = (props) => {
         navigate(to);
     };
     return (
-        <div className="col-6 col-md-4 col-lg-3 mb-4 product">
-            <div className="card">
-                <div className="card-img">
+        <div className="col-6 col-md-4 col-lg-3 mb-4 product ">
+            <div className="card" style={{
+                height: "400px",
+                width: "300px",
+                
+            }}>
+                <div className="card-img" style={{
+                    height:"50%"
+                }}>
                     <img
                         src={productImage}
                         className="card-img-top p-3"
                         alt={productName}
+                        style={{
+                            height:"100%"
+                        }}
                     />
                 </div>
-                <div className="card-body">
+                <div className="card-body" style={{
+                    paddingTop:"40px"
+                }}>
                     <h5 className="card-title">{productName}</h5>
                     <div className="card-information d-flex items-center justify-content-between">
                         <span className=" text-primary">$ {productPrice}</span>

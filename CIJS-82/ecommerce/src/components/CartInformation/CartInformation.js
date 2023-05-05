@@ -21,9 +21,17 @@ const CartInformation = (props) => {
     return (
       <tr key={cartItem.id}>
         <th scope="row">{index}</th>
-        <td>{productName}</td>
-        <td>
-          <img src={productImage} alt="Cart image" height={"50px"} />
+        <td style={{
+          width:"300px"
+          
+        }}>{productName}</td>
+        <td style={{
+          width:"200px",
+         
+        }}>
+          <img src={productImage} alt="Cart image" style={{
+            width:"50%"
+          }}/>
         </td>
         <td>{productPrice}</td>
         <td>
@@ -78,10 +86,7 @@ const CartInformation = (props) => {
           </tr>
         </thead>
         <tbody>
-          <div>
           {cartBodyElements}
-          </div>
-          
           <tr>
             <td>Total price</td>
             <td></td>

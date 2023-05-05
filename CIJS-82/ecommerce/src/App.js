@@ -6,6 +6,7 @@ import Admin from './pages/Admin/Admin';
 import Cart from './pages/Cart/Cart'
 import Header from './layouts/Header/Header';
 import NotFound from './pages/NotFound/NotFound'
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 import { useState } from 'react';
 import AppContext from './contexts/AppContext';
 import { v4 as uuidv4 } from "uuid";
@@ -87,7 +88,7 @@ const App = () => {
   }
 
 
-  return <div className='App container'>
+  return <div className='App'>
     <AppContext.Provider
       value={{
         products: products,
@@ -101,6 +102,7 @@ const App = () => {
         <main className="container py-3">
           <Routes>
             <Route path='/' element={<HomePage />} />
+            <Route path="/products/:productId" element={<ProductDetail />} />
             <Route path='/about-us' element={<AboutUs />} />
             <Route path='/admin' element={<Admin />} />
             <Route path='/cart'

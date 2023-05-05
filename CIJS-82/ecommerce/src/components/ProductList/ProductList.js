@@ -13,7 +13,11 @@ const ProductList = () => {
         const {productName, productImage, productPrice, id} = product;
        
         return(
-            <div key={id}>
+            <div key={id} style={{
+                width:"300px",
+                height:"400px",
+                margin:"10px"
+            }}>
                 <ProductItem 
                     productName ={productName}
                     productImage = {productImage}

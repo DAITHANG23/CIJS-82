@@ -4,6 +4,7 @@ import {FaShoppingCart} from 'react-icons/fa'
 import './Header.css'
 const Header = (props) => {
   const {cart} = props;
+  const lengthCart = cart.length;
 const navigate = useNavigate();
 
 const onNavigateToCartPage = () =>{
@@ -12,7 +13,8 @@ const onNavigateToCartPage = () =>{
 
   return (
 
-    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{display:"flex", justifyContent: 'space-between'}}>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{display:"flex", justifyContent: 'space-around',
+    padding:"0px 40px"}}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/"><img src='./images/Logo-Thegioididong.jpg'/></Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +42,7 @@ const onNavigateToCartPage = () =>{
         <FaShoppingCart />
         </div>
         
-        <span className='number-cart'>{cart}</span>
+        <span className='number-cart'>{lengthCart}</span>
       </div>
     </nav>
   )
