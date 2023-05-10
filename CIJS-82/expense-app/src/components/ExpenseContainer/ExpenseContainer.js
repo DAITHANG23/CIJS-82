@@ -4,12 +4,12 @@ import FormFilterYear from "../FormFilterYear/FormFilterYear";
 import "./ExpenseContainer.css"
 
 const ExpenseContainer = (props) =>{
-    const {expenseList} = props
+    const {expenseList, currentYear, setCurrentYear, filtered, setFiltered} = props
     
     return <div className="expense-container">
-        <FormFilterYear />
+        <FormFilterYear setCurrentYear={setCurrentYear} />
         <ChartContainer />
-        <ExpenseList expenseList={expenseList} />
+        <ExpenseList expenseList={expenseList} currentYear={currentYear} filtered={filtered} setFiltered={setFiltered}/>
     </div>
 }
 

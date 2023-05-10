@@ -1,26 +1,33 @@
+import { useEffect, useState } from "react"
 import ExpenseItem from "../ExpenseItem/ExpenseItem"
 import "./ExpenseList.css"
 
 const ExpenseList = (props) => {
-    const { expenseList } = props
-    const isValidExpense = expenseList && Array.isArray(expenseList)
+    const { expenseList, currentYear, filtered, setFiltered } = props
 
-    const listExpense = isValidExpense && expenseList.map((expenseItem) => {
-        console.log("expenseItem",expenseList)
+    useEffect(() => {
+        const filteredList = expenseList.filter((expenseItem) =>
+            new Date(expenseItem.createTime).getFullYear() === (+currentYear)
+        )
+        setFiltered(filteredList)
+    }, [currentYear])
+
+    const listExpense = filtered.map((expenseItem) => {
+
         const { name, amount, createTime, id } = expenseItem;
-       
+
         return (
-            <ExpenseItem 
-                name ={name}
-                amount = {amount}
-                createTime = {createTime}
-                key ={id}
+            <ExpenseItem
+                name={name}
+                amount={amount}
+                createTime={createTime}
+                key={id}
             />
         )
     })
 
     return <div className="expense-list">
-            {listExpense}
+        {listExpense}
     </div>
 }
 

@@ -6,7 +6,7 @@ const ExpenseItem = (props) =>{
         const year = new Date(createTime).getFullYear();
         const month = months[new Date(createTime).getMonth()];
         const date = new Date(createTime).getDate();
-        console.log(date)
+       
     return <div className="expense-item" >
         <div className="expense-date">
             <p>{month}</p>
