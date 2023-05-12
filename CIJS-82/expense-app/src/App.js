@@ -12,6 +12,18 @@ function App() {
   const [expenseList, setExpenseList] = useState([])
   const [currentYear, setCurrentYear] = useState("")
   const [filtered, setFiltered] = useState([]);
+  const [filteredMonthJan, setFilteredMonthJan] = useState([]);
+  const [filteredMonthFeb, setFilteredMonthFeb] = useState([]);
+  const [filteredMonthMar, setFilteredMonthMar] = useState([]);
+  const [filteredMonthApr, setFilteredMonthApr] = useState([]);
+  const [filteredMonthMay, setFilteredMonthMay] = useState([]);
+  const [filteredMonthJun, setFilteredMonthJun] = useState([]);
+  const [filteredMonthJul, setFilteredMonthJul] = useState([]);
+  const [filteredMonthAug, setFilteredMonthAug] = useState([]);
+  const [filteredMonthSep, setFilteredMonthSep] = useState([]);
+  const [filteredMonthOct, setFilteredMonthOct] = useState([]);
+  const [filteredMonthNov, setFilteredMonthNov] = useState([]);
+  const [filteredMonthDec, setFilteredMonthDec] = useState([]);
 
   const onAddNewExpenseList = (expenseItem) => {
     const newExpense = {
@@ -28,7 +40,10 @@ function App() {
     <div className="App">
       <main>
         <Header />
-        <ExpenseContainer expenseList={expenseList} currentYear={currentYear} setCurrentYear={setCurrentYear} filtered={filtered} setFiltered={setFiltered} />
+        <ExpenseContainer expenseList={expenseList} currentYear={currentYear} setCurrentYear={setCurrentYear} filtered={filtered} setFiltered={setFiltered} filteredMonthJan={filteredMonthJan} setFilteredMonthJan={setFilteredMonthJan} filteredMonthFeb={filteredMonthFeb} setFilteredMonthFeb={setFilteredMonthFeb} filteredMonthMar={filteredMonthMar} setFilteredMonthMar={setFilteredMonthMar} filteredMonthApr={filteredMonthApr} setFilteredMonthApr={setFilteredMonthApr} filteredMonthMay={filteredMonthMay} setFilteredMonthMay={setFilteredMonthMay} filteredMonthJun={filteredMonthJun} setFilteredMonthJun={setFilteredMonthJun} filteredMonthJul={filteredMonthJul} setFilteredMonthJul={setFilteredMonthJul}
+        filteredMonthAug={filteredMonthAug} setFilteredMonthAug={setFilteredMonthAug} filteredMonthSep={filteredMonthSep} setFilteredMonthSep={setFilteredMonthSep} filteredMonthOct={filteredMonthOct} 
+        setFilteredMonthOct={setFilteredMonthOct} filteredMonthNov={filteredMonthNov} setFilteredMonthNov={setFilteredMonthNov} filteredMonthDec={filteredMonthDec} setFilteredMonthDec={setFilteredMonthDec}
+        />
       </main>
 
       <FormModal onAddExpense={onAddNewExpenseList} />

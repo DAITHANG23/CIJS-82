@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 import ExpenseItem from "../ExpenseItem/ExpenseItem"
 import "./ExpenseList.css"
 
@@ -13,7 +13,6 @@ const ExpenseList = (props) => {
     }, [currentYear])
 
     const listExpense = filtered.map((expenseItem) => {
-
         const { name, amount, createTime, id } = expenseItem;
 
         return (
