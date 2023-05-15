@@ -2,7 +2,7 @@ import React from 'react'
 
 const ChartApr = (props) => {
     const { month, filteredMonthApr } = props;
-    const TARGET_INCOME = 1000;
+    const TARGET_INCOME = 10000;
     const chartApr = filteredMonthApr.map((chartItem) => {
         const { amount } = chartItem;
         let expense = +amount
@@ -22,15 +22,19 @@ const ChartApr = (props) => {
     }
     const totalExpense = totalExpenseMonth(chartApr);
 
-    let percent = (totalExpense / TARGET_INCOME)*100
+    let percent = Math.round((totalExpense / TARGET_INCOME)*100);
     
-
+    let stylePercent = percent ? (percent) : ("")
+    let exceedPercent = (percent >= 100) ? "chart-percent-item" : "style-chart" 
     return <div className="chart-item">
-        <div className="chart-percent">
-            <p className="chart-percent-item">{percent}</p>
+        <div style={{position:"relative"}} className="chart-percent">
+            <div style={{
+                height:`${percent}%`
+            }} className={exceedPercent} >{stylePercent}</div>
         </div>
         <p>{month}</p>
     </div>
+
 
 }
 

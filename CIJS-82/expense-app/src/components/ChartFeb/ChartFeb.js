@@ -2,7 +2,7 @@ import './ChartFeb.css'
 
 const ChartFeb = (props) => {
     const { month, filteredMonthFeb } = props;
-    const TARGET_INCOME = 1000;
+    const TARGET_INCOME = 10000;
     const chartFeb = filteredMonthFeb.map((chartItem) => {
         const { amount } = chartItem;
         let expense = +amount
@@ -22,15 +22,19 @@ const ChartFeb = (props) => {
     }
     const totalExpense = totalExpenseMonth(chartFeb);
 
-    let percent = (totalExpense / TARGET_INCOME)*100
+    let percent = Math.round((totalExpense / TARGET_INCOME)*100);
     
-
+    let stylePercent = percent ? (percent) : ("")
+    let exceedPercent = (percent >= 100) ? "chart-percent-item" : "style-chart" 
     return <div className="chart-item">
-        <div className="chart-percent">
-            <p className="chart-percent-item" >{percent}</p>
+        <div style={{position:"relative"}} className="chart-percent">
+            <div style={{
+                height:`${percent}%`
+            }} className={exceedPercent} >{stylePercent}</div>
         </div>
         <p>{month}</p>
     </div>
+
 
 }
 
