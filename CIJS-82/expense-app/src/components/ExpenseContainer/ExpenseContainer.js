@@ -10,7 +10,7 @@ const ExpenseContainer = (props) => {
         <FormFilterYear setCurrentYear={setCurrentYear} />
         <ChartContainer filtered={filtered} filteredMonthJan={filteredMonthJan} setFilteredMonthJan={setFilteredMonthJan} filteredMonthFeb={filteredMonthFeb} setFilteredMonthFeb={setFilteredMonthFeb} filteredMonthMar={filteredMonthMar} setFilteredMonthMar={setFilteredMonthMar} filteredMonthApr={filteredMonthApr} setFilteredMonthApr={setFilteredMonthApr} filteredMonthMay={filteredMonthMay} setFilteredMonthMay={setFilteredMonthMay} filteredMonthJun={filteredMonthJun} setFilteredMonthJun={setFilteredMonthJun} filteredMonthJul={filteredMonthJul} setFilteredMonthJul={setFilteredMonthJul}
             filteredMonthAug={filteredMonthAug} setFilteredMonthAug={setFilteredMonthAug} filteredMonthSep={filteredMonthSep} setFilteredMonthSep={setFilteredMonthSep} filteredMonthOct={filteredMonthOct}
-            setFilteredMonthOct={setFilteredMonthOct} filteredMonthNov={filteredMonthNov} setFilteredMonthNov={setFilteredMonthNov} filteredMonthDec={filteredMonthDec} setFilteredMonthDec={setFilteredMonthDec} currentYear={currentYear} />
+            setFilteredMonthOct={setFilteredMonthOct} filteredMonthNov={filteredMonthNov} setFilteredMonthNov={setFilteredMonthNov} filteredMonthDec={filteredMonthDec} setFilteredMonthDec={setFilteredMonthDec} />
         <ExpenseList expenseList={expenseList} currentYear={currentYear} filtered={filtered} setFiltered={setFiltered} />
     </div>
 }

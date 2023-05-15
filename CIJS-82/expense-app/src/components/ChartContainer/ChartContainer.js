@@ -1,9 +1,21 @@
 import { useEffect } from "react";
 import ChartItem from "../ChartItem/ChartItem";
+import ChartJan from "../ChartJan/ChartJan"
 import "./ChartContainer.css"
+import ChartFeb from "../ChartFeb/ChartFeb";
+import ChartMar from "../ChartMar/ChartMar";
+import ChartApr from "../ChartApr/ChartApr";
+import ChartMay from "../ChartMay/ChartMay";
+import ChartJun from '../ChartJun/ChartJun'
+import ChartJul from "../ChartJul/ChartJul";
+import ChartAug from "../ChartAug/ChartAug";
+import ChartSep from "../ChartSep/ChartSep";
+import ChartOct from "../ChartOct/ChartOct";
+import ChartNov from "../ChartNov/ChartNov";
+import ChartDec from "../ChartDec/ChartDec";
 
 const MONTHS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-const ChartContainer = ({ filtered, filteredMonthJan, setFilteredMonthJan, filteredMonthFeb, setFilteredMonthFeb, filteredMonthMar, setFilteredMonthMar, filteredMonthApr, setFilteredMonthApr, filteredMonthMay, setFilteredMonthMay, filteredMonthJun, setFilteredMonthJun, filteredMonthJul, setFilteredMonthJul, filteredMonthAug, setFilteredMonthAug, filteredMonthSep, setFilteredMonthSep, filteredMonthOct, setFilteredMonthOct, filteredMonthNov, setFilteredMonthNov, filteredMonthDec, setFilteredMonthDec, currentYear}) => {
+const ChartContainer = ({ filtered, filteredMonthJan, setFilteredMonthJan, filteredMonthFeb, setFilteredMonthFeb, filteredMonthMar, setFilteredMonthMar, filteredMonthApr, setFilteredMonthApr, filteredMonthMay, setFilteredMonthMay, filteredMonthJun, setFilteredMonthJun, filteredMonthJul, setFilteredMonthJul, filteredMonthAug, setFilteredMonthAug, filteredMonthSep, setFilteredMonthSep, filteredMonthOct, setFilteredMonthOct, filteredMonthNov, setFilteredMonthNov, filteredMonthDec, setFilteredMonthDec}) => {
 
     useEffect(()=>{
         const chartItemJan = filtered.filter((chartItem) => {
@@ -79,28 +91,24 @@ const ChartContainer = ({ filtered, filteredMonthJan, setFilteredMonthJan, filte
         setFilteredMonthDec(chartItemDec);
 
         
-    },[currentYear, MONTHS[0], MONTHS[1], MONTHS[2], MONTHS[3], MONTHS[4], MONTHS[5], MONTHS[6], MONTHS[7], MONTHS[8], MONTHS[9], MONTHS[10],MONTHS[11]])
-    
-
-    console.log("filtered", filtered)
-    console.log("filteredMonthJan", filteredMonthJan);
-    console.log("filteredMonthFeb", filteredMonthFeb);
-    console.log("filteredMonthMar", filteredMonthMar);
+    },[filtered])
+        
    
+
     return <div className="chart-container">
 
-        <ChartItem month="Jan" />
-        <ChartItem month="Feb" />
-        <ChartItem month="Mar" />
-        <ChartItem month="Apr" />
-        <ChartItem month="May" />
-        <ChartItem month="Jun" />
-        <ChartItem month="Jul" />
-        <ChartItem month="Aug" />
-        <ChartItem month="Sep" />
-        <ChartItem month="Oct" />
-        <ChartItem month="Nov" />
-        <ChartItem month="Dec" />
+        <ChartJan filteredMonthJan={filteredMonthJan} month="Jan" />
+        <ChartFeb filteredMonthFeb={filteredMonthFeb} month="Feb" />
+        <ChartMar filteredMonthMar={filteredMonthMar} month="Mar" />
+        <ChartApr filteredMonthApr={filteredMonthApr} month="Apr" />
+        <ChartMay filteredMonthMay={filteredMonthMay} month="May" />
+        <ChartJun filteredMonthJun={filteredMonthJun} month="Jun" />
+        <ChartJul filteredMonthJul={filteredMonthJul} month="Jul" />
+        <ChartAug filteredMonthAug={filteredMonthAug} month="Aug" />
+        <ChartSep filteredMonthSep={filteredMonthSep} month="Sep" />
+        <ChartOct filteredMonthOct={filteredMonthOct} month="Oct" />
+        <ChartNov filteredMonthNov={filteredMonthNov} month="Nov" />
+        <ChartDec filteredMonthDec={filteredMonthDec} month="Dec" />
 
     </div>
 }

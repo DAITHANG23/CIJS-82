@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 
 function App() {
 
-  const TARGET_INCOME = 1000;
+  
   const FILTER_YEARS = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
   const [expenseList, setExpenseList] = useState([])
   const [currentYear, setCurrentYear] = useState("")

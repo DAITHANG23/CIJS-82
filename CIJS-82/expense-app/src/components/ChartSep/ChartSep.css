@@ -1,0 +1,19 @@
+.chart-item{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chart-percent{
+    width: 21px;
+    height: 139px;
+    background-color: #BAA5ED;
+    border: solid black 1px;
+    border-radius: 50px;
+}
+
+.chart-item p{
+    font-size: 12px;
+    font-weight: 400;
+    color: black;
+}

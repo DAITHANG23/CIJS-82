@@ -1,8 +1,9 @@
 import "./ChartItem.css"
 
 const ChartItem = (props) =>{
-    const {month, amount, createTime, id} = props;
+    const {month} = props;
         
+
     return <div className="chart-item">
         <div className="chart-percent">
         <p className="chart-percent-item"></p>
