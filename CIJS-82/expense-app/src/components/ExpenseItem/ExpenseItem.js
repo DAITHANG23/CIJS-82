@@ -70,7 +70,7 @@ const ExpenseItem = (props) => {
             }
             if (e.key === 'Escape') {
                 setisEditingValueAmount(amount)
-                // setIsEditing(false);
+                setIsEditingAmount(false);
             }
         }
 
