@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import ChartItem from "../ChartItem/ChartItem";
 import ChartJan from "../ChartJan/ChartJan"
 import "./ChartContainer.css"
 import ChartFeb from "../ChartFeb/ChartFeb";

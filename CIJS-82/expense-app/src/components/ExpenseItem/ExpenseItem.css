@@ -28,18 +28,24 @@
 
 .expense-title{
     padding: 40px 10px;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 700;
     line-height: 42px;
     text-align: left;
 }
 
 .amount{
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 10px;
     background-color: #862796;
     color: #FFFFFF;
-    font-size: 24px;
+    font-size: 22px;
     border: 1px solid #FFFFFF;
     border-radius: 12px;
+}
+
+.editing{
+    margin: 30px 10px;
+    display: flex;
+    gap: 20px;
 }

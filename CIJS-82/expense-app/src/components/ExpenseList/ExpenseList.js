@@ -3,7 +3,7 @@ import ExpenseItem from "../ExpenseItem/ExpenseItem"
 import "./ExpenseList.css"
 
 const ExpenseList = (props) => {
-    const { expenseList, currentYear, filtered, setFiltered } = props
+    const { expenseList, currentYear, filtered, setFiltered, onUpdateName, onUpdateAmount, onDeleteExpense } = props
 
     useEffect(() => {
         const filteredList = expenseList.filter((expenseItem) =>
@@ -21,6 +21,10 @@ const ExpenseList = (props) => {
                 amount={amount}
                 createTime={createTime}
                 key={id}
+                id={id}
+                onUpdateName={onUpdateName}
+                onUpdateAmount={onUpdateAmount}
+                onDeleteExpense={onDeleteExpense}
             />
         )
     })
