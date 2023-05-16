@@ -11,7 +11,13 @@ const TodoForm = (props) => {
 
     const onAddNewTodoList = (e) => {
         e.preventDefault();
-        props.onAddNewTodo(title);
+        if(title.trim())
+        {
+            props.onAddNewTodo(title);
+        }else{
+            alert("Fill in form, please!")
+        }
+       
         setTitle("");
     }
     return <div className='form'>
@@ -22,6 +28,7 @@ const TodoForm = (props) => {
                 onChange={onChangeTodoForm}
                 value={title}
                 placeholder='I will do this *'
+                
             />
             <button type='submit' className="button-form">+ ADD</button>
         </form>

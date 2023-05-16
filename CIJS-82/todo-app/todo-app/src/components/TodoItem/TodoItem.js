@@ -25,6 +25,16 @@ const TodoItem = (props) => {
         setIsEditing(false)
     }
 
+    const onKeyDownHandler = (e) =>{
+        if(e.key === 'Enter'){
+            onUpdateTitleHandle();
+        }
+        if(e.key === 'Escape'){
+            setIsEditingValue(title)
+            // setIsEditing(false);
+        }
+    }
+
     useEffect(() => {
         if (isEditing && todoInputRef) {
           todoInputRef && todoInputRef.current.focus();
@@ -41,6 +51,7 @@ const TodoItem = (props) => {
                     name={title}
                     onChange={onChangeTitle}
                     onBlur={onUpdateTitleHandle}
+                    onKeyDown={onKeyDownHandler}
                     ref={todoInputRef}
                     />
                 ): (<p  className={isStyleTitle}
